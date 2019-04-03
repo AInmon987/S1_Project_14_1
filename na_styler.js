@@ -24,56 +24,56 @@
 window.addEventListener("load", setStyles);
 
 function setStyles() {
-      //generates a num between zero and four.
+      //Generates a num between zero and four.
       var styleNum = randInt(5);
-      //creating a link element. 
+      //Creating a link element. 
       var fancySheet = document.createElement("link");
-      //applying a rel to the stylesheet that is applied to the link. 
+      //Applying a rel to the stylesheet that is applied to the link. 
       fancySheet.setAttribute("rel", "stylesheet");
       //Appyling an id to the fancySheet that is applied to the link. 
       fancySheet.setAttribute("id", "fancySheet");
 
       fancySheet.setAttribute("href", "na_style_" + styleNum + ".css");
-
+      //Added the fancySheet style sheet to the document head.
       document.head.appendChild(fancySheet);
-
+      //Created a figure element inside of the variable figBox.
       var figBox = document.createElement("figure");
 
       figBox.setAttribute("id", "styleThumbs");
-
+      //Added the content inside of the figBox variable to the element that has the id of box.
       document.getElementById("box").appendChild(figBox);
 
       for (var i = 0; i <= 4; i++) {
             var sheetImg = document.createElement("img");
-
+            //Setting the src to each and every small image and its looping through to change the theme.
             sheetImg.setAttribute("src", "na_small_" + [i] + ".png")
-
+            //Setting the alt to each and every small image and its looping through to change the theme.
             sheetImg.setAttribute("alt", "na_style_" + [i] + ".css")
 
             sheetImg.addEventListener("click", function (e) {
                   fancySheet.setAttribute("href", e.target.alt)
             });
-
+            //Attaching the sheetImg to the htmll document.
             figBox.appendChild(sheetImg);
 
             var thumbStyles = document.createElement("style");
-
+            //Adding the thumbstyles stylesheet to the document head.
             document.head.appendChild(thumbStyles);
-
+            //Inserting a rue on the ThumbStyles style sheet.
             thumbStyles.sheet.insertRule(
                   "figure#styleThumbs {\
                         position: absolute;\
                         left: 0px;\
                         bottom: 0px;\
                   }", 0);
-
+            //Inserting a rue on the ThumbStyles style sheet.
             thumbStyles.sheet.insertRule(
                   "figure#styleThumbs img {\
                         outline: 1px solid black;\
                         cursor: pointer;\
                         opacity: 0.75;\
                   }", 1);
-
+            //Inserting a rue on the ThumbStyles style sheet.
             thumbStyles.sheet.insertRule(
                   "figure#styleThumbs img:hover {\
                         outline: 1px solid red;\
